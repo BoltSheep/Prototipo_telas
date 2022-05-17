@@ -1,6 +1,5 @@
 package com.example.prototipodenovamovimentao.domain.usecase
 
-import androidx.core.text.isDigitsOnly
 
 class ValidateOrigin {
 
