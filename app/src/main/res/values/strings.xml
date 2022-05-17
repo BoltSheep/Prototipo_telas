@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Prototipo de nova movimentação</string>
+    <string name="tipo_demostrativo">Retirada</string>
+    <string name="tipo_demostrativo2">Entrega</string>
+    <string name="tipo_demostrativo3">Entrega em Cliente</string>
+    <string name="quem_recebeu">Quem Recebeu?</string>
+    <string name="km_hint">Km</string>
+    <string name="km_hint_full">108 Km</string>
+    <string name="litros_hint">l</string>
+    <string name="action_confirm">Confirmar</string>
+    <string name="action_final">Finalizar Movimentação</string>
+    <string name="header_viagem">Viagem em Curso</string>
+    <string name="header_status">Status da Conclusão</string>
+    <string name="header_viagem_completa">Viagem Concluída</string>
+    <string name="km_text">Km inicial: </string>
+    <string name="combustivel_Inicial_text">Combustivel Inicial: </string>
+
+    <string name="descricao_ocorrido">Descreva oque ocorreu:</string>
+
+    <string name="checked">checked</string>
+    <string name="unchecked">unchecked</string>
+
+
+
+</resources>

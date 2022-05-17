@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/movementFragment">
+    <fragment
+        android:id="@+id/mainActivity4"
+        android:name="com.example.prototipodenovamovimentao.MainActivity"
+        android:label="viagemCurso"
+        tools:layout="@layout/viagem_curso">
+        <action
+            android:id="@+id/action_mainActivity4_to_travelingFragment2"
+            app:destination="@id/travelingFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishedTravelFragment"
+        android:name="com.example.prototipodenovamovimentao.FinishedTravelFragment"
+        android:label="FinishedTravelFragment"
+        tools:layout="@layout/viagem_concluida">
+        <action
+            android:id="@+id/action_finishedTravelFragment_to_movementFragment"
+            app:destination="@id/movementFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/travelingFragment2"
+        android:name="com.example.prototipodenovamovimentao.TravelingFragment"
+        android:label="TravelingFragment"
+        tools:layout="@layout/preenchimento">
+        <action
+            android:id="@+id/action_travelingFragment2_to_finishedTravelFragment"
+            app:destination="@id/finishedTravelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movementFragment"
+        android:name="com.example.prototipodenovamovimentao.MovementFragment"
+        android:label="MovementFragment"
+        tools:layout="@layout/movimentacoes">
+        <action
+            android:id="@+id/action_movementFragment_to_mainActivity4"
+            app:destination="@id/mainActivity4" />
+        <argument
+            android:name="tipoMovimentacao"
+            app:argType="integer" />
+    </fragment>
+</navigation>

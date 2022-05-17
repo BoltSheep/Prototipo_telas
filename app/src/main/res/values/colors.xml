@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00984A</color>
+    <color name="colorPrimaryDark">#1A000000</color>
+    <color name="colorAccent">#CBDB2A</color>
+
+    //Text
+    <color name="baseTitleTextColor">#333333</color>
+    <color name="baseSubtitleTextColor">#6c6f81</color>
+    <color name="tilHintColor">#99000000</color>
+    <color name="etToolbarColor">#9497A8</color>
+
+    //Component
+    <color name="lineViewColor">#33000000</color>
+
+    //Colors
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_transparent_ninety_five">#CDFFFFFF</color>
+    <color name="light_gray2">#FAFAFA</color>
+    <color name="light_gray">#cdcdcd</color>
+    <color name="cool_gray">#D8DAE0</color>
+    <color name="blue_google">#1a73e8</color>
+    <color name="slate_gray">#545763</color>
+    <color name="confirm_error">#CE003C</color>
+    <color name="confirm_success">#00984A</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="black_transparent_ninety_five">#CD000000</color>
+    <color name="black_transparent_twelve">#1F000000</color>
+    <color name="search_green_ok">#61E27B</color>
+    <color name="shimmer_color">#66CED3E0</color>
+    <color name="green_login_background">#00984A</color>
+    <color name="green_login_button">#CBDB2A</color>
+    <color name="neutral_color">#666666</color>
+
+    <color name="localiza_green">#00984A</color>
+    <color name="localiza_dark_green">#005E3B</color>
+    <color name="localiza_light_green">#CBDB2A</color>
+    <color name="localiza_green_transparent_ninety_five">#CD00984A</color>
+    <color name="localiza_dark_gray">#333333</color>
+
+    <color name="white_transparent_ninety_fife">#CDFFFFFF</color>
+    <color name="gray_transparent_ninety_five">#CD787A79</color>
+    <color name="dark_gray_transparent">#260B0B0B</color>
+
+    <color name="yellow_alert">#FF9800</color>
+
+    <color name="ces_totally_disagree">#b72025</color>
+    <color name="ces_disagree">#d62027</color>
+    <color name="ces_partially_disagree">#f36f21</color>
+    <color name="ces_indecisive">#ffca27</color>
+    <color name="ces_partially_agree">#ecdb12</color>
+    <color name="ces_agree">#afd136</color>
+    <color name="ces_totally_agree">#64b64d</color>
+    <color name="ces_gray_semi_transparent">#65717570</color>
+
+    <color name="black">#FF000000</color>
+    <color name="medium_gray">#838383</color>
+
+    <color name="title">#0b0b0b</color>
+    <color name="subtitle">#515055</color>
+
+    <color name="success">#6fcf97</color>
+    <color name="light_success">#e9f6eb</color>
+    <color name="dark_success">#005E3B</color>
+    <color name="error">#eb5757</color>
+    <color name="light_error">#ffeaea</color>
+    <color name="dark_error">#5F2120</color>
+    <color name="warning">#f2c94c</color>
+    <color name="dark_warning">#663C00</color>
+    <color name="light_warning">#fff2e2</color>
+    <color name="info">#2f80ed</color>
+    <color name="light_info">#d4e6f9</color>
+    <color name="dark_info">#014361</color>
+
+    <color name="dark_gray_notification">#666666</color>
+    <color name="dark_gray_notification_transparent">#11000000</color>
+</resources>
