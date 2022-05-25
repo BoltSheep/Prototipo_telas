@@ -35,95 +35,101 @@ class TravelFinishedFragment : BaseFragment() {
 
     override fun setupView() {
         super.setupView()
-
-        if (generalViewModel.movementType == 1) {
-            binding.clQuemRecebeu.visibility = View.INVISIBLE
-            generalViewModel.onEvent(FillFormEvent.WhoReceived("Não Aplicavel"))
-            generalViewModel.endTripFlux()
-        }
-
-        binding.tvKmInicial.text = generalViewModel.state.initialKM + "Km"
-        binding.tvCombustivelInicial.text = generalViewModel.state.initialGas.toString() + "/8"
-
-        binding.radioGroup.setOnCheckedChangeListener { radioGroup, i ->
-
-            if (binding.alright.isChecked) {
-                binding.clWhatHappened.visibility = View.GONE
-                binding.clDescricOdoOcorrido.visibility = View.GONE
-                if (generalViewModel.movementType != 1)
-                binding.clQuemRecebeu.visibility = View.VISIBLE
+        
+        binding.apply {
+            if (generalViewModel.movementType == 1) {
+                clQuemRecebeu.visibility = View.INVISIBLE
+                generalViewModel.onEvent(FillFormEvent.WhoReceived("Não Aplicavel"))
+                generalViewModel.endTripFlux()
             }
 
-            if (binding.somethingWrong.isChecked) {
-                binding.clWhatHappened.visibility = View.VISIBLE
-                binding.clDescricOdoOcorrido.visibility = View.VISIBLE
+            tvKmInicial.text = generalViewModel.state.initialKM + "Km"
+            tvCombustivelInicial.text = generalViewModel.state.initialGas.toString() + "/8"
+
+            radioGroup.setOnCheckedChangeListener { radioGroup, i ->
+
+                if (alright.isChecked) {
+                    clWhatHappened.visibility = View.GONE
+                    clDescricOdoOcorrido.visibility = View.GONE
+                    if (generalViewModel.movementType != 1)
+                    clQuemRecebeu.visibility = View.VISIBLE
+                }
+
+                if (somethingWrong.isChecked) {
+                    clWhatHappened.visibility = View.VISIBLE
+                    clDescricOdoOcorrido.visibility = View.VISIBLE
+                }
+
             }
 
-        }
-
-        binding.tietKm.setOnFocusChangeListener { view, b ->
-            if (binding.tietKm.text.isNullOrEmpty()) {
-                binding.btnEndTrip.isEnabled = false
-            } else {
-                generalViewModel.onEvent(
-                    FillFormEvent.FinalKMChanged(
-                        binding.tietKm.text.toString(),
-                        generalViewModel.state.initialKM
+            tietKm.setOnFocusChangeListener { view, b ->
+                if (tietKm.text.isNullOrEmpty()) {
+                    btnEndTrip.isEnabled = false
+                } else {
+                    generalViewModel.onEvent(
+                        FillFormEvent.FinalKMChanged(
+                            tietKm.text.toString(),
+                            generalViewModel.state.initialKM
+                        )
                     )
-                )
-                generalViewModel.endTripFlux()
-                binding.btnEndTrip.isEnabled = generalViewModel.enableEndButton
+                    generalViewModel.endTripFlux()
+                    btnEndTrip.isEnabled = generalViewModel.enableEndButton
+                }
+            }
+
+            tietKm.setOnEditorActionListener { textView, i, keyEvent ->
+                if (i == EditorInfo.IME_ACTION_DONE) {
+                    tietKm.clearFocus()
+                }
+                false
+            }
+
+            isbFuelLevel.onSeekChangeListener = object : OnSeekChangeListener {
+                override fun onSeeking(seekParams: SeekParams) {
+                    gasLevel = seekParams.progress
+                }
+
+
+                override fun onStartTrackingTouch(seekBar: IndicatorSeekBar) {
+                    tietKm.clearFocus()
+                }
+
+                override fun onStopTrackingTouch(seekBar: IndicatorSeekBar) {
+                    generalViewModel.onEvent(FillFormEvent.FinalGasChanged(gasLevel))
+                    generalViewModel.endTripFlux()
+                    btnEndTrip.isEnabled = generalViewModel.enableEndButton
+                }
+            }
+
+            tietQuemRecebeu.setOnFocusChangeListener { view, b ->
+                if (tietQuemRecebeu.text.isNullOrEmpty()) {
+                    btnEndTrip.isEnabled = false
+                } else {
+                    generalViewModel.onEvent(FillFormEvent.WhoReceived(tietQuemRecebeu.text.toString()))
+                    generalViewModel.endTripFlux()
+                    btnEndTrip.isEnabled = generalViewModel.enableEndButton
+                }
+            }
+
+            tietQuemRecebeu.setOnEditorActionListener { textView, i, keyEvent ->
+                if (i == EditorInfo.IME_ACTION_DONE) {
+                    tietQuemRecebeu.clearFocus()
+                }
+                false
+            }
+
+            btnEndTrip.setOnClickListener {
+                generalViewModel.clearState()
+                generalViewModel.isTravelFinished = true
+                navigate()
+                Log.d("miojo", "Obtido: \n ${generalViewModel.state}")
             }
         }
+    }
 
-        binding.tietKm.setOnEditorActionListener { textView, i, keyEvent ->
-            if (i == EditorInfo.IME_ACTION_DONE) {
-                binding.tietKm.clearFocus()
-            }
-            false
-        }
-
-        binding.isbFuelLevel.onSeekChangeListener = object : OnSeekChangeListener {
-            override fun onSeeking(seekParams: SeekParams) {
-                gasLevel = seekParams.progress
-            }
-
-
-            override fun onStartTrackingTouch(seekBar: IndicatorSeekBar) {
-                binding.tietKm.clearFocus()
-            }
-
-            override fun onStopTrackingTouch(seekBar: IndicatorSeekBar) {
-                generalViewModel.onEvent(FillFormEvent.FinalGasChanged(gasLevel))
-                generalViewModel.endTripFlux()
-                binding.btnEndTrip.isEnabled = generalViewModel.enableEndButton
-            }
-        }
-
-        binding.tietQuemRecebeu.setOnFocusChangeListener { view, b ->
-            if (binding.tietQuemRecebeu.text.isNullOrEmpty()) {
-                binding.btnEndTrip.isEnabled = false
-            } else {
-                generalViewModel.onEvent(FillFormEvent.WhoReceived(binding.tietQuemRecebeu.text.toString()))
-                generalViewModel.endTripFlux()
-                binding.btnEndTrip.isEnabled = generalViewModel.enableEndButton
-            }
-        }
-
-        binding.tietQuemRecebeu.setOnEditorActionListener { textView, i, keyEvent ->
-            if (i == EditorInfo.IME_ACTION_DONE) {
-                binding.tietQuemRecebeu.clearFocus()
-            }
-            false
-        }
-
-        binding.btnEndTrip.setOnClickListener {
-            generalViewModel.clearState()
-            generalViewModel.isTravelFinished = true
-            this.findNavController()
-                .navigate(R.id.action_finishedTravelFragment_to_movementFragment)
-            Log.d("miojo", "Obtido: \n ${generalViewModel.state}")
-        }
+    fun navigate() {
+        this.findNavController()
+            .navigate(R.id.action_finishedTravelFragment_to_movementFragment)
     }
 
     override fun onDestroyView() {

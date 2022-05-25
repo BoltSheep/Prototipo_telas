@@ -36,27 +36,30 @@ class MovementFragment : BaseFragment() {
             generalViewModel.isTravelFinished = false
             Toast.makeText(requireContext(), "Movimentação realizada", Toast.LENGTH_SHORT).show()
         }
+        binding.apply {
+            clRetirada.setOnClickListener {
+                generalViewModel.movementType = 1
+                Log.d("miojo", "Retirada: ${generalViewModel.movementType}")
+                navigate()
 
-        binding.clRetirada.setOnClickListener {
-            generalViewModel.movementType = 1
-            Log.d("miojo", "Retirada: ${generalViewModel.movementType}")
-            this.findNavController().navigate(R.id.action_movementFragment_to_fragment_filler)
+            }
 
+            clEntrega.setOnClickListener {
+                generalViewModel.movementType = 2
+                Log.d("miojo", "Entrega ${generalViewModel.movementType}")
+                navigate()
+            }
+
+            clEntregaCliente.setOnClickListener {
+                generalViewModel.movementType = 3
+                Log.d("miojo", "Entrega ${generalViewModel.movementType}")
+                navigate()
+            }
         }
+    }
 
-        binding.clEntrega.setOnClickListener {
-            generalViewModel.movementType = 2
-            Log.d("miojo", "Entrega ${generalViewModel.movementType}")
-            this.findNavController().navigate(R.id.action_movementFragment_to_fragment_filler)
-        }
-
-        binding.clEntregaCliente.setOnClickListener {
-            generalViewModel.movementType = 3
-            Log.d("miojo", "Entrega ${generalViewModel.movementType}")
-            this.findNavController().navigate(R.id.action_movementFragment_to_fragment_filler)
-
-        }
-
+    private fun navigate() {
+        this.findNavController().navigate(R.id.action_movementFragment_to_fragment_filler)
     }
 
     override fun onDestroyView() {

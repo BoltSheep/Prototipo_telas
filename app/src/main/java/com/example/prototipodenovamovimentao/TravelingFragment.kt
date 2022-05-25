@@ -29,29 +29,34 @@ class TravelingFragment : BaseFragment() {
     override fun setupView() {
         super.setupView()
 
-        if (generalViewModel.movementType == 1) {
-            binding.tvTravelingTitle.setText(R.string.tipo_demostrativo)
-            binding.clMobileItem.visibility = View.GONE
-        }
-        if (generalViewModel.movementType == 2) {
-            binding.tvTravelingTitle.setText(R.string.tipo_demostrativo2)
-            binding.clMobileItem.visibility = View.GONE
-        }
+        binding.apply {
+            if (generalViewModel.movementType == 1) {
+                tvTravelingTitle.setText(R.string.tipo_demostrativo)
+                clMobileItem.visibility = View.GONE
+            }
+            if (generalViewModel.movementType == 2) {
+                tvTravelingTitle.setText(R.string.tipo_demostrativo2)
+                clMobileItem.visibility = View.GONE
+            }
 
-        if (generalViewModel.movementType == 3) {
-            binding.tvTravelingTitle.setText(R.string.tipo_demostrativo3)
+            if (generalViewModel.movementType == 3) {
+                tvTravelingTitle.setText(R.string.tipo_demostrativo3)
+            }
+
+            tvOrigem.text = generalViewModel.state.origin
+            tvDestino.text = generalViewModel.state.destination
+            tietKm.hint = generalViewModel.state.initialKM + "Km"
+            isbFuelLevel.setProgress(generalViewModel.state.initialGas!!.toFloat())
+
+            btnEndTrip.setOnClickListener {
+                navigate()
+            }
         }
+    }
 
-        binding.tvOrigem.text = generalViewModel.state.origin
-        binding.tvDestino.text = generalViewModel.state.destination
-        binding.tietKm.hint = generalViewModel.state.initialKM + "Km"
-        binding.isbFuelLevel.setProgress(generalViewModel.state.initialGas!!.toFloat())
-
-        binding.btnEndTrip.setOnClickListener {
-            this.findNavController()
-                .navigate(R.id.action_fragmentTraveling_to_fragmentTravelFinished)
-        }
-
+    private fun navigate() {
+        this.findNavController()
+            .navigate(R.id.action_fragmentTraveling_to_fragmentTravelFinished)
     }
 
     override fun onDestroyView() {
