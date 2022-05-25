@@ -232,7 +232,7 @@
                 android:id="@+id/tvCombustivelTitulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Combusivel inicial"
+                android:text="Combustível inicial"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
