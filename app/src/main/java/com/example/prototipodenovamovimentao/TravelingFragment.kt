@@ -13,8 +13,6 @@ import com.example.prototipodenovamovimentao.models.TripViewModel
 class TravelingFragment : BaseFragment() {
 
     private val generalViewModel: TripViewModel by activityViewModels()
-//    private val state = generalViewModel.state
-//    private val fragmentContext = context
 
     private var _binding: FragmentTravelingBinding? = null
     private val binding get() = _binding!!
@@ -50,8 +48,14 @@ class TravelingFragment : BaseFragment() {
         binding.isbFuelLevel.setProgress(generalViewModel.state.initialGas!!.toFloat())
 
         binding.btnEndTrip.setOnClickListener {
-            this.findNavController().navigate(R.id.action_fragmentTraveling_to_fragmentTravelFinished)
+            this.findNavController()
+                .navigate(R.id.action_fragmentTraveling_to_fragmentTravelFinished)
         }
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

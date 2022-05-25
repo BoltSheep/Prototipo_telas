@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.RadioButton
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.prototipodenovamovimentao.base.BaseFragment
@@ -19,8 +18,7 @@ import com.warkiz.widget.SeekParams
 
 class TravelFinishedFragment : BaseFragment() {
     private val generalViewModel: TripViewModel by activityViewModels()
-//    private val state = generalViewModel.state
-//    private val fragmentContext = context
+
 
     private var _binding: FragmentTravelFinishedBinding? = null
     private val binding get() = _binding!!
@@ -38,8 +36,8 @@ class TravelFinishedFragment : BaseFragment() {
     override fun setupView() {
         super.setupView()
 
-        if (generalViewModel.movementType == 3) {
-            binding.clQuemRecebeu.visibility = View.GONE
+        if (generalViewModel.movementType == 1) {
+            binding.clQuemRecebeu.visibility = View.INVISIBLE
             generalViewModel.onEvent(FillFormEvent.WhoReceived("Não Aplicavel"))
             generalViewModel.endTripFlux()
         }
@@ -52,6 +50,7 @@ class TravelFinishedFragment : BaseFragment() {
             if (binding.alright.isChecked) {
                 binding.clWhatHappened.visibility = View.GONE
                 binding.clDescricOdoOcorrido.visibility = View.GONE
+                if (generalViewModel.movementType != 1)
                 binding.clQuemRecebeu.visibility = View.VISIBLE
             }
 
@@ -66,7 +65,12 @@ class TravelFinishedFragment : BaseFragment() {
             if (binding.tietKm.text.isNullOrEmpty()) {
                 binding.btnEndTrip.isEnabled = false
             } else {
-                generalViewModel.onEvent(FillFormEvent.FinalKMChanged(binding.tietKm.text.toString(), generalViewModel.state.initialKM))
+                generalViewModel.onEvent(
+                    FillFormEvent.FinalKMChanged(
+                        binding.tietKm.text.toString(),
+                        generalViewModel.state.initialKM
+                    )
+                )
                 generalViewModel.endTripFlux()
                 binding.btnEndTrip.isEnabled = generalViewModel.enableEndButton
             }
@@ -114,9 +118,17 @@ class TravelFinishedFragment : BaseFragment() {
         }
 
         binding.btnEndTrip.setOnClickListener {
-            this.findNavController().navigate(R.id.action_finishedTravelFragment_to_movementFragment)
+            generalViewModel.clearState()
+            generalViewModel.isTravelFinished = true
+            this.findNavController()
+                .navigate(R.id.action_finishedTravelFragment_to_movementFragment)
             Log.d("miojo", "Obtido: \n ${generalViewModel.state}")
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

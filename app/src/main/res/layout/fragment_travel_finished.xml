@@ -5,12 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgBackArrowCarPlate"
+        style="@style/BackButton"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFillerTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvFillerTitle" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvFillerTitle"
         style="@style/FragmentTitleText"
         android:text="@string/header_viagem_completa"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgBackArrowCarPlate"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
@@ -258,6 +266,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
+            android:visibility="gone"
+            tools:visibility="visible"
             app:layout_constraintTop_toBottomOf="@id/clStatus"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -334,7 +344,6 @@
                     app:flow_horizontalAlign="start"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-
                     app:layout_constraintTop_toTopOf="parent">
 
                     <RadioButton

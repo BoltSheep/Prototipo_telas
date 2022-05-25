@@ -35,6 +35,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/clDestino" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgBackArrowCarPlate"
+        style="@style/BackButton"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFillerSupTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvFillerSupTitle" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvFillerSupTitle"
+        style="@style/FragmentTitleText"
+        android:text="@string/header_preenchimento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgBackArrowCarPlate"
+        app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_movimentação"
             android:layout_width="match_parent"
@@ -43,7 +59,7 @@
             android:background="@drawable/bg_border_shape"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/tvFillerSupTitle">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iconeDaMovimentação"

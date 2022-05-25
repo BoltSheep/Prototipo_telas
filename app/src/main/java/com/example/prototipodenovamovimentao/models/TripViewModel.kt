@@ -6,9 +6,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.prototipodenovamovimentao.forms.FillFormEvent
 import com.example.prototipodenovamovimentao.TripValuesFormState
 import com.example.prototipodenovamovimentao.domain.usecase.*
+import com.example.prototipodenovamovimentao.forms.FillFormEvent
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
@@ -29,6 +29,7 @@ class TripViewModel(
     var movementType: Int = 0
     var enableButton: Boolean = false
     var enableEndButton: Boolean = false
+    var isTravelFinished: Boolean = false
 
     var state by mutableStateOf(TripValuesFormState())
 
@@ -138,20 +139,20 @@ class TripViewModel(
     }
 
     fun clearState() {
-        state.origin
-        state.originError
-        state.destination
-        state.destinationError
-        state.initialGas
-        state.initialGasError
-        state.initialKM
-        state.finalKMError
-        state.finalGas
-        state.finalGasError
-        state.finalKM
-        state.finalKMError
-        state.receiverName
-        state.receiverNameError
+        state = state.copy(origin = "")
+        state = state.copy(originError = null)
+        state = state.copy(destination = "")
+        state = state.copy(destinationError = null)
+        state = state.copy(initialGas = null)
+        state = state.copy(initialGasError = null)
+        state = state.copy(initialKM = "")
+        state = state.copy(finalKMError = null)
+        state = state.copy(finalGas = 0)
+        state = state.copy(finalGasError = null)
+        state = state.copy(finalKM = "")
+        state = state.copy(finalKMError = null)
+        state = state.copy(receiverName = "")
+        state = state.copy(receiverNameError = null)
     }
 
 

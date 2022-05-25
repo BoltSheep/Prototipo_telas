@@ -1,12 +1,10 @@
 package com.example.prototipodenovamovimentao
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import androidx.compose.runtime.LaunchedEffect
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.prototipodenovamovimentao.base.BaseFragment
@@ -21,8 +19,6 @@ import com.warkiz.widget.SeekParams
 class FillerFragment : BaseFragment(), OnButtonClickListener {
 
     private val generalViewModel: TripViewModel by activityViewModels()
-//    private val state = generalViewModel.state
-//    private val fragmentContext = context
 
 
     private var _binding: FragmentFillerBinding? = null
@@ -69,7 +65,7 @@ class FillerFragment : BaseFragment(), OnButtonClickListener {
         }
 
         binding.tvOrigem.setOnFocusChangeListener { view, b ->
-            if (binding.tvOrigem.text.isNullOrBlank()){
+            if (binding.tvOrigem.text.isNullOrBlank()) {
                 binding.btnContinue.isEnabled = false
             } else {
                 generalViewModel.onEvent(FillFormEvent.OriginChanged(binding.tvOrigem.text.toString()))
@@ -86,7 +82,7 @@ class FillerFragment : BaseFragment(), OnButtonClickListener {
         }
 
         binding.tvDestino.setOnFocusChangeListener { view, b ->
-            if (binding.tvDestino.text.isNullOrEmpty()){
+            if (binding.tvDestino.text.isNullOrEmpty()) {
                 binding.btnContinue.isEnabled = false
             } else {
                 generalViewModel.onEvent(FillFormEvent.DestinationChanged(binding.tvDestino.text.toString()))
@@ -111,7 +107,7 @@ class FillerFragment : BaseFragment(), OnButtonClickListener {
                 binding.btnContinue.isEnabled = generalViewModel.enableButton
             }
         }
-        
+
         binding.tietKm.setOnEditorActionListener { textView, i, keyEvent ->
             if (i == EditorInfo.IME_ACTION_DONE) {
                 binding.tietKm.clearFocus()
@@ -142,6 +138,11 @@ class FillerFragment : BaseFragment(), OnButtonClickListener {
             this.findNavController().navigate(R.id.action_fragmentFiller_to_fragmentTraveling)
         }
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

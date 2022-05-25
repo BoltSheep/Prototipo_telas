@@ -12,6 +12,7 @@
     <string name="header_viagem">Viagem em Curso</string>
     <string name="header_status">Status da Conclusão</string>
     <string name="header_viagem_completa">Viagem Concluída</string>
+    <string name="header_preenchimento">Inicio movimentção</string>
     <string name="km_text">Km inicial: </string>
     <string name="combustivel_Inicial_text">Combustivel Inicial: </string>
 
