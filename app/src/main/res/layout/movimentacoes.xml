@@ -94,7 +94,7 @@
         </androidx.appcompat.widget.AppCompatImageView>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvKmFuelTitle"
+            android:id="@+id/tvFillerTitle"
             style="@style/FragmentTitleText"
             android:layout_margin="6dp"
             android:text="@string/tipo_demostrativo3"

@@ -1,13 +1,13 @@
 package com.example.prototipodenovamovimentao.domain.usecase
 
 
-class ValidateOrigin {
+class ValidateDestination {
 
-    fun execute(origin: String): ValidationResult {
-        if (origin.isBlank()) {
+    fun execute(destination: String): ValidationResult {
+        if (destination.isBlank()) {
             return ValidationResult(
                 successful = false,
-                errorMessage = "origem vazia"
+                errorMessage = "destino vazio"
             )
         }
         return ValidationResult(

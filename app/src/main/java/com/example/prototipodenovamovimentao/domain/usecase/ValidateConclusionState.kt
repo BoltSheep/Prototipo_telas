@@ -1,13 +1,11 @@
 package com.example.prototipodenovamovimentao.domain.usecase
 
-
-class ValidateOrigin {
-
-    fun execute(origin: String): ValidationResult {
-        if (origin.isBlank()) {
+class ValidateConclusionState {
+    fun execute(statusBoxChecked: Boolean?): ValidationResult {
+        if (statusBoxChecked == null ) {
             return ValidationResult(
                 successful = false,
-                errorMessage = "origem vazia"
+                errorMessage = "Por favor selecione uma opção"
             )
         }
         return ValidationResult(

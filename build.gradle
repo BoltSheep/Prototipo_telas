@@ -1,6 +1,18 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    apply {
+        ext{
+            koinLibrary = [
+                    "org.koin:koin-core:2.1.0-alpha-8",
+                    "org.koin:koin-android:2.1.0-alpha-8",
+                    "org.koin:koin-androidx-scope:2.1.0-alpha-8",
+                    "org.koin:koin-androidx-viewmodel:2.1.0-alpha-8",
+                    "androidx.room:room-ktx:2.1.0-alpha-8"
+            ]
+        }
+    }
+
     repositories {
         google()
         mavenCentral()

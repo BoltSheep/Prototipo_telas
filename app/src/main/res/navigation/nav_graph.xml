@@ -5,31 +5,31 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/movementFragment">
     <fragment
-        android:id="@+id/mainActivity4"
-        android:name="com.example.prototipodenovamovimentao.MainActivity"
-        android:label="viagemCurso"
-        tools:layout="@layout/viagem_curso">
+        android:id="@+id/fragmentFiller"
+        android:name="com.example.prototipodenovamovimentao.FillerFragment"
+        android:label="Filler"
+        tools:layout="@layout/fragment_filler">
         <action
-            android:id="@+id/action_mainActivity4_to_travelingFragment2"
-            app:destination="@id/travelingFragment2" />
+            android:id="@+id/action_fragmentFiller_to_fragmentTraveling"
+            app:destination="@id/fragmentTraveling" />
     </fragment>
     <fragment
-        android:id="@+id/finishedTravelFragment"
-        android:name="com.example.prototipodenovamovimentao.FinishedTravelFragment"
+        android:id="@+id/fragmentTravelFinished"
+        android:name="com.example.prototipodenovamovimentao.TravelFinishedFragment"
         android:label="FinishedTravelFragment"
-        tools:layout="@layout/viagem_concluida">
+        tools:layout="@layout/fragment_travel_finished">
         <action
             android:id="@+id/action_finishedTravelFragment_to_movementFragment"
             app:destination="@id/movementFragment" />
     </fragment>
     <fragment
-        android:id="@+id/travelingFragment2"
+        android:id="@+id/fragmentTraveling"
         android:name="com.example.prototipodenovamovimentao.TravelingFragment"
-        android:label="TravelingFragment"
-        tools:layout="@layout/preenchimento">
+        android:label="fragmentTraveling"
+        tools:layout="@layout/fragment_traveling">
         <action
-            android:id="@+id/action_travelingFragment2_to_finishedTravelFragment"
-            app:destination="@id/finishedTravelFragment" />
+            android:id="@+id/action_fragmentTraveling_to_fragmentTravelFinished"
+            app:destination="@id/fragmentTravelFinished" />
     </fragment>
     <fragment
         android:id="@+id/movementFragment"
@@ -37,10 +37,7 @@
         android:label="MovementFragment"
         tools:layout="@layout/movimentacoes">
         <action
-            android:id="@+id/action_movementFragment_to_mainActivity4"
-            app:destination="@id/mainActivity4" />
-        <argument
-            android:name="tipoMovimentacao"
-            app:argType="integer" />
+            android:id="@+id/action_movementFragment_to_fragment_filler"
+            app:destination="@id/fragmentFiller" />
     </fragment>
 </navigation>

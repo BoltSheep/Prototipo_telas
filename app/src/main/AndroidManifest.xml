@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrototipoDeNovaMovimentação">
         <activity
-            android:name=".MainActivity"
+            android:name=".base.BaseActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize|adjustPan"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -13,5 +13,11 @@ data class TripValuesFormState(
     val finalKM: String = "",
     val finalKMError: String? = null,
     val finalGas: Int = 0,
-    val finalGasError: String? = null
+    val finalGasError: String? = null,
+    val statusConclusion: Boolean? = null,
+    val statusConclusionError: String? = null,
+    val registeredOccur: String = "",
+    val registeredOccurError: String? = null,
+    val receiverName: String = "",
+    val receiverNameError: String? = null
 )

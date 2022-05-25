@@ -10,12 +10,16 @@
         <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/drawable-v24/ic_fuel_level.xml" value="0.3828125" />
         <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/drawable-v24/ic_origin.xml" value="0.3828125" />
         <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/drawable-v24/seekbar_lines.xml" value="0.22135416666666666" />
-        <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/activity_base.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/activity_base.xml" value="0.16" />
         <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/fragment_filler.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/fragment_travel_finished.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/fragment_traveling.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/movimentacoes.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/preenchimento.xml" value="0.22" />
         <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/viagemConcluida.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/viagemCurso.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/viagem_concluida.xml" value="0.25" />
         <entry key="..\:/Users/thida/AndroidStudioProjects/Prototipodenovamovimentao/app/src/main/res/layout/viagem_curso.xml" value="0.36666666666666664" />
       </map>
     </option>

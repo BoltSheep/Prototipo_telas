@@ -1,4 +1,4 @@
-package com.localiza.movedriver.base.listeners
+package com.example.prototipodenovamovimentao.base.listeners
 
 interface OnItemClickListener<T> {
 
